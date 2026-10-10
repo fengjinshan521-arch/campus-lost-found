@@ -1,0 +1,28 @@
+# 通用
+.DS_Store
+Thumbs.db
+*.log
+.idea/
+.vscode/
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+
+# 后端
+server/.env
+server/__pycache__/
+server/**/__pycache__/
+server/instance/uploads/*
+!server/instance/uploads/.gitkeep
+server/instance/test_uploads/
+server/logs/*.log
+server/.pytest_cache/
+server/.venv/
+server/venv/
+server/.coverage
+htmlcov/
+
+# 前端
+web/node_modules/
+web/dist/

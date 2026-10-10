@@ -1,0 +1,18 @@
+[Unit]
+Description=Campus Lost and Found Platform (Flask + gunicorn)
+After=network.target mysql.service
+
+[Service]
+Type=simple
+User=www-data
+WorkingDirectory=/var/www/campus-lost-found/server
+Environment="FLASK_ENV=production"
+EnvironmentFile=/var/www/campus-lost-found/server/.env
+ExecStart=/var/www/campus-lost-found/server/.venv/bin/gunicorn -w 4 -b 127.0.0.1:5000 "run:app"
+Restart=always
+RestartSec=3
+StandardOutput=append:/var/log/lostfound/app.log
+StandardError=append:/var/log/lostfound/app.log
+
+[Install]
+WantedBy=multi-user.target
